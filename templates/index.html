@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rainblur Landing Page Template: Tailwind Toolbox</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+      html {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+
+      .download-content{
+
+        overflow-x: auto;
+        background-color: rgba(31, 41, 55, 0.75);
+        
+        width: 384px;
+        height: 316px;
+
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+        transition-property: transform;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        
+      }
+
+      @media screen and (max-width: 768px) {
+        .download-content {
+          width: auto; /* Cambia el ancho máximo para pantallas de tamaño de teléfono */
+        }
+      }
+
+      @media screen and (max-width: 540px) {
+        .download-content {
+          width: auto; /* Cambia el ancho máximo para pantallas de tamaño de teléfono */
+          height: auto;
+        }
+      }
+
+     
+      
+
+    </style>
+  </head>
+
+  <body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed">
+
+    <div class="h-full">
+      <!--Nav-->
+      <div class="w-full container mx-auto">
+        <div class="w-full flex items-center justify-between">
+          <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">MinimalTools</span>
+          </a>
+
+          <div class="flex w-1/2 justify-end content-center">
+            <a class="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out" href="https://twitter.com/intent/tweet?url=#">
+              <svg class="fill-current h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <path
+                  d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"
+                ></path>
+              </svg>
+            </a>
+
+            <!-- Agregar mas logos -->
+
+          </div>
+        </div>
+      </div>
+      
+       <!-- Main Content -->
+      <div class="container pt-24 md:pt-36 mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Welcome to Minimal Tools</h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-8">Your hub for simple and powerful online tools.</p>
+
+        <!-- Logos -->
+        <div class="flex justify-center mb-8">
+          <img class="w-16 h-16 md:w-24 md:h-24 mx-4" src="{{ url_for('static', filename='logo-youtube.png') }}" alt="YouTube Logo" />
+        </div>
+
+        <h4 id="video-title" class="hidden text-2xl font-bold dark:text-white"></h4>
+
+        <div class="grid md:flex justify-center items-center">
+
+
+
+          <div class="md:w-96">
+            <form id="search-form" class="bg-gray-900 opacity-75 w-full md:w-96 mx-auto shadow-lg rounded-lg px-8 pt-6 pb-8 transition-transform transform duration-500 ease-in-out">
+              <div class="mb-4">
+                <label class="block text-blue-300 py-2 font-bold mb-2" for="url">
+                  Enter the URL
+                </label>
+                <input
+                  name="url"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring focus:outline-none focus:shadow-outline"
+                  id="url"
+                  type="text"
+                  placeholder="https://example.com"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-blue-300 py-2 font-bold mb-2" for="format">
+                  Select Format
+                </label>
+                <select
+                  name="select"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring focus:outline-none focus:shadow-outline"
+                  id="format"
+                >
+                  <option value="mp3">MP3</option>
+                  <option value="mp4">MP4</option>
+                </select>
+              </div>
+
+              <div class="flex items-center justify-center pt-4">
+                <button
+                  class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div id="down-content" class="mt-4 md:mt-0 md:ml-4">
+            <div id="download-options" class="flex flex-col"></div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <!--Footer-->
+      <div class="w-full pt-16 pb-6 text-sm text-center fade-in mb-8 md:mb-16">
+        <a class="text-gray-300 no-underline hover:no-underline" href="#">&copy; App 2023</a>
+        MinimalTools.
+      </div>
+
+    </div>
+      
+  </body>
+</html>
+
+<script>
+  function descarga(valor) {
+    // Obtén los datos del formulario
+    const itag = valor;
+
+    // Realiza una solicitud AJAX al servidor Flask
+    fetch("/download", {
+        method: "POST",
+        body: itag.toString(), // Asegúrate de que el valor sea una cadena
+    })
+    .then((response) => {
+        if (response.ok) {
+            // Extrae el nombre de archivo de la respuesta
+            const contentDisposition = response.headers.get('content-disposition');
+            const fileName = contentDisposition.split(';')[1].trim().split('=')[1];
+
+            // Iniciar la descarga del archivo con el nombre obtenido
+            response.blob().then((blob) => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.style.display = "none";
+                a.href = url;
+                a.download = fileName; // Establece el nombre del archivo
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            });
+        } else {
+            alert("Error en la descarga");
+        }
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+    });
+  }
+
+
+</script>
+
+<script>
+  document.body.style.backgroundImage = "url('{{ url_for('static', filename='header.png') }}')";
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const searchForm = document.getElementById("search-form");
+  const downloadOptions = document.getElementById("download-options");
+  const divdownload = document.getElementById("down-content");
+
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita la acción de envío por defecto
+
+    // Obtén los datos del formulario
+    const formData = new FormData(searchForm);
+
+    // Realiza una solicitud AJAX al servidor Flask
+    fetch("/", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json()) // Recibimos un objeto JSON
+      .then((data) => {
+        // Actualiza el contenido del div con las opciones de descarga
+        downloadOptions.innerHTML = data.media;
+        // Actualiza el contenido del div con el título del video
+        document.getElementById("video-title").classList.remove("hidden")
+        document.getElementById("video-title").innerText = data.title;
+        // Muestra la columna con una animación suave
+        // Dentro de la función de búsqueda
+        divdownload.classList.remove("hidden");
+        downloadOptions.classList.add("download-content");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+});
+
+</script>
