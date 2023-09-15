@@ -133,13 +133,3 @@ def show_Qualities(url, formato):
                 stream_descriptions += f'<div class="mb-2"><button onclick="descarga({stream.itag})" type="submit" value"{stream.itag}" class="w-40 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800"> <span class="w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"> {stream.abr} | {round(stream.filesize_mb, 1)} MB </span></button></div>'      
     
     return stream_descriptions
-
-    
-
-# Si este script se ejecuta directamente, inicia el servidor Flask
-if __name__ == '__main__':
-    app.debug = True
-    app.secret_key = 'tu_clave_secreta123'
-    app.run()
-    
-
