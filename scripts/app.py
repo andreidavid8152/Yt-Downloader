@@ -40,12 +40,12 @@ def download():
 
 
     if formato_descarga == 'mp3':
-        file_path = stream.download(output_path=".", filename="MinimalTools_"+ titulo + f'_{numero_aleatorio}.mp3')
+        file_path = stream.download(output_path="/tmp/", filename="MinimalTools_"+ titulo + f'_{numero_aleatorio}.mp3')
         archivos_Descargados.append(file_path)
     elif formato_descarga == 'mp4':
-        file_path = stream.download(output_path=".", filename=titulo + f'_{numero_aleatorio}.mp4')
+        file_path = stream.download(output_path="/tmp/", filename=titulo + f'_{numero_aleatorio}.mp4')
         stream_audio = yt.streams.get_by_itag(251)
-        audio_path = stream_audio.download(output_path=".", filename=titulo.replace(' ', '_') + f'_{numero_aleatorio}.mp3');
+        audio_path = stream_audio.download(output_path="/tmp/", filename=titulo.replace(' ', '_') + f'_{numero_aleatorio}.mp3');
         archivos_Descargados.append(file_path)
         archivos_Descargados.append(audio_path)
         file_path = add_audio_to_video(file_path, audio_path)
