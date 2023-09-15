@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "name": "mi-aplicacion",
+  "name": "yt-downloader",
   "builds": [
     {
-      "src": "scripts/app.py",
+      "src": "index.py",
       "use": "@vercel/python",
       "config": {"maxLambdaSize": "50mb"}
     }
@@ -11,7 +11,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "scripts/app.py"
+      "dest": "index.py"
     }
   ]
 }
