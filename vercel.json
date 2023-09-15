@@ -1,14 +1,17 @@
- {
-     "builds": [
-         {
-             "src": "scripts/app.py",
-             "use": "@vercel/python"
-         }
-     ],
-     "routes": [
-         {
-             "src": "/(.*)",
-             "dest": "scripts/app.py"
-         }
-     ]
- }
+{
+  "version": 2,
+  "name": "mi-aplicacion",
+  "builds": [
+    {
+      "src": "scripts/app.py",
+      "use": "@vercel/python",
+      "config": {"maxLambdaSize": "50mb"}
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "scripts/app.py"
+    }
+  ]
+}
