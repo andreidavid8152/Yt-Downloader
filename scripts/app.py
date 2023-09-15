@@ -1,6 +1,6 @@
 import os, random, time, threading, subprocess
 from pytube import YouTube
-from flask import Flask, render_template, request, send_file, Response, make_response, session, after_this_request
+from flask import Flask, render_template, request, send_file, make_response, session
 from pytube.exceptions import LiveStreamError, RegexMatchError 
 
 # Configuracion inicial de la app, se renombra la carpeta donde esta almacenado los templates, url y la carpeta de los archivos estaticos (css, images, js)
