@@ -6,6 +6,7 @@ import os, random, time, threading, subprocess
 
 # Configuracion inicial de la app, se renombra la carpeta donde esta almacenado los templates, url y la carpeta de los archivos estaticos (css, images, js)
 app = Flask(__name__, template_folder='../templates', static_url_path='/assets', static_folder='../assets')
+app.secret_key = 'tu_clave_secreta_123_21_20'
 
 #Se define la ruta para la pagina principal
 @app.route('/')
