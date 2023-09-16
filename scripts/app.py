@@ -1,9 +1,7 @@
 from pytube import YouTube
 from flask import Flask, render_template, request, send_file, make_response, session
 from pytube.exceptions import LiveStreamError, RegexMatchError 
-import os, random, time, threading
-import moviepy.editor as mpe
-
+import os, random, time, threading, subprocess
 
 
 # Configuracion inicial de la app, se renombra la carpeta donde esta almacenado los templates, url y la carpeta de los archivos estaticos (css, images, js)
@@ -81,15 +79,9 @@ def add_audio_to_video(video_path, audio_path):
     nuevo_nombre_archivo = f'MinimalTools_{nombre_archivo}'
     output_path = os.path.join(directorio, nuevo_nombre_archivo)
 
-    # Carga el video y el audio
-    my_clip = mpe.VideoFileClip(video_path)
-    audio_background = mpe.AudioFileClip(audio_path)
-
-    # Combina el audio y el video
-    final_clip = my_clip.set_audio(audio_background)
-
-    # Guarda el resultado
-    final_clip.write_videofile(output_path)
+    command = f'ffmpeg -y -i {video_path} -i {audio_path} -c:v copy -c:a aac {output_path}'
+    process = subprocess.Popen(command, shell=True)
+    process.communicate()  # Espera a que termine ffmpeg
 
     return output_path
 
